@@ -4,7 +4,6 @@ export default {
 		const pathname = url.pathname;
 
 		const staticFiles = [
-			"googleec6d3f409fbc2789.html",
 			"favicon.ico",
 			"ajax/libs/jquery/3.6.0/jquery.min.js"
 		];
@@ -13,32 +12,33 @@ export default {
 			return env.ASSETS.fetch(request);
 		}
 
-// 		const allowedFiles = [
-// 			"googleec6d3f409fbc2789.html",
-// 			"GOOGLE1.html",
-// 			"GOOGLE2.html",
-// 			"GOOGLE3.html",
-// 			"GOOGLE4.html",
-// 			"GOOGLE5.html"
-// 		];
+		const allowedFiles = [
+			"googleec6d3f409fbc2789.html",
+			"GOOGLE1.html",
+			"GOOGLE2.html",
+			"GOOGLE3.html",
+			"GOOGLE4.html",
+			"GOOGLE5.html"
+		];
 
-// 		if (allowedFiles.includes(pathname.slice(1))) { // hapus leading '/'
-// 			const fileRes = await fetch(`https://new.ndende.eu/${pathname.slice(1)}`);
+		if (allowedFiles.includes(pathname.slice(1))) { // hapus leading '/'
+			const fileRes = await fetch(`https://new.ndende.eu/${pathname.slice(1)}`);
 
-// 			if (!fileRes.ok) {
-// 				return new Response("Failed to load verification file", { status: 502 });
-// 			}
+			if (!fileRes.ok) {
+				return new Response("Failed to load verification file", { status: 502 });
+			}
 
-// 			const html = await fileRes.text();
+			const html = await fileRes.text();
 
-// 			return new Response(html, {
-// 				status: 200,
-// 				headers: {
-// 					"Content-Type": "text/html; charset=UTF-8",
-// 					"Cache-Control": "public, max-age=3600",
-// 				},
-// 			});
-// 		}
+			return new Response(html, {
+				status: 200,
+				headers: {
+					"Content-Type": "text/html; charset=UTF-8",
+					"Cache-Control": "public, max-age=3600",
+				},
+			});
+		}
+
 
 		// 		if (pathname === "/robots.txt") {
 		// 			return new Response(`User-agent: *
